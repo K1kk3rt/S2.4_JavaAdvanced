@@ -1,6 +1,6 @@
 package model;
 
-public class patrol {
+public class Patrol {
 
     private Integer id;
     private Integer points;
@@ -9,7 +9,7 @@ public class patrol {
     private String city;
     private String group;
 
-    public patrol(Integer id, Integer points, Integer patrolNum, String patrolName, String city, String group) {
+    public Patrol(Integer id, Integer points, Integer patrolNum, String patrolName, String city, String group) {
         this.id = id;
         this.points = points;
         this.patrolNum = patrolNum;
@@ -18,7 +18,7 @@ public class patrol {
         this.group = group;
     }
 
-    public patrol() {
+    public Patrol() {
     }
 
     @Override
