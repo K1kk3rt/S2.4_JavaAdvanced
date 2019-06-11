@@ -11,6 +11,8 @@ public class PatrolController {
 
     private LswService service;
 
+    //private static final Logger logger = Logger.getLogger(App.class.getName());
+
     public PatrolController(LswService service) {
         this.service = service;
     }
@@ -27,6 +29,7 @@ public class PatrolController {
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Patrol getPatrolById(@PathVariable Long id) {
+
         return service.getPatrolById(id);
     }
 

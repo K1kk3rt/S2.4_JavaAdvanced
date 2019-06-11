@@ -27,31 +27,21 @@ public class MyApplicationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Patrol pattrol = new Patrol( "joe");
 
         Files.lines(Paths.get("src/main/resources/patrols.csv"))
                 .forEach(
-                        line -> pointsRepository.save(
-                                new Points(pattrol
-                                        ,
-                                        Integer.parseInt(line.split(",")[1])
-                                )));
+                        line -> patrolRepository.save(new Patrol(line.split(",")[0])));
 
-//        new Patrol(
-//                line.split(",")[0]
-//        )
 
-        pointsRepository.findAll()
+        patrolRepository.findAll()
                 .forEach(System.out::println);
 
         List<Patrol> patrols = (List<Patrol>) patrolRepository.findAll();
         patrols.stream()
-                .forEach(a -> pointsRepository.save(new Points(a, new Random().nextInt(10))));
+                .forEach(a -> pointsRepository.save(new Points(a, new Random().nextInt(10000))));
 
         pointsRepository.findAll()
                 .forEach(System.out::println);
     }
-
-
 }
 

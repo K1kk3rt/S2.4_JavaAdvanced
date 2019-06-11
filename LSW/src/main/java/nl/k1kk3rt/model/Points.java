@@ -5,13 +5,13 @@ import javax.persistence.*;
 @Entity
 public class Points {
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Patrol patrol;
-
     @Id
-    @SequenceGenerator(name = "patrol_seq", initialValue = 001)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "patrol_seq")
+    @SequenceGenerator(name = "points_seq", initialValue = 001)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "points_seq")
     private Long id;
+
+    @OneToOne
+    private Patrol patrol;
 
     private Integer points;
 

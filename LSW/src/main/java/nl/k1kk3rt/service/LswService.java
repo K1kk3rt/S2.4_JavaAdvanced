@@ -12,6 +12,8 @@ public class LswService {
     private PatrolRepository patrolRepository;
     private PointsRepository pointsRepository;
 
+
+
     public LswService(PatrolRepository patrolRepository, PointsRepository pointsRepository) {
         this.patrolRepository = patrolRepository;
         this.pointsRepository = pointsRepository;
@@ -26,6 +28,7 @@ public class LswService {
     }
 
     public void deletePatrol(Long id) {
+        pointsRepository.delete(pointsRepository.findById(id).orElseThrow(IllegalArgumentException::new));
         patrolRepository.delete(patrolRepository.findById(id).orElseThrow(IllegalArgumentException::new));
     }
 

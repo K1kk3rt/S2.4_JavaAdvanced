@@ -7,9 +7,6 @@ import javax.validation.constraints.NotNull;
 @Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"groupName"})})
 public class Patrol {
 
-    @OneToOne
-    private Points points;
-
     @Id
     @SequenceGenerator(name="patrol_seq", initialValue = 001)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "patrol_seq")

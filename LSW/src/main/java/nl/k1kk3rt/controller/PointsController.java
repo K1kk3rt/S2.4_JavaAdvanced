@@ -18,7 +18,7 @@ public class PointsController {
         this.service = service;
     }
 
-    @RequestMapping(value = "value/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Integer getPatrolPointsById(@PathVariable Long id) {
         return service.getPatrolPointsById(id);
     }
